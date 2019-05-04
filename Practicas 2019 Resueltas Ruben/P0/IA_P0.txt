@@ -1,0 +1,500 @@
+
+- Ejercicio 1: 
+	1) > (CONS 'ANIMAL '((CASA-MASCOTAS(PERRO GATO))))
+
+- Ejercicio 2:
+	1) > (CONS 'SABADO '(FIN-DE-SEMANA SABADO.DOMINGO) )
+	2) > (CONS 'SEMANA '(FIN-DE-SEMANA (SABADO.DOMINGO)) )
+	3) > ( CONS '(LAS-LISTAS.PUEDEN) '(TENER VARIAS ESTRUCTURAS))
+
+- Ejercicio 3: 
+	1) > ((CONS '() '()) >>> (NIL)
+	2) > (CONS 'B '()) >>> (B)
+	3) > (CONS '1 '(2 3 4 5)) >>> (1 2 3 4 5)
+	4) > (CONS 'A '((B C))) >>> (A (B C))
+	5) > (CONS 'HURACAN-ALICIA '( (B-A-KmH 170)(HUMEDAD 100)(LOCALIZACION(NORTE 32.8))))
+	6) > (CONS 'DIAS-LABORABLES '((LU MA MI JU VI))) >>> (DIAS-LABORABLES (LU MA MI JU VI))
+	7) > (CONS 'DIAS-FESTIVOS '((LU MI))) >>> (DIAS-FESTIVOS (LU MI))
+	8) > (CONS '(LAS-LISTAS PUEDEN) '(TENER VARIAS ESTRUCTURAS)) >>> ((LAS-LISTAS PUEDEN) TENER VARIAS ESTRUCTURAS)
+	9) > (CONS 'LU '(MA MI JU VI SEMANA SA DO.FIN-DE-SEMANA)) >>> (LU MA MI JU VI SEMANA SA DO.FIN-DE-SEMANA)
+
+- Ejercicio 4:
+	a) > (LISTA.PEQUEÑA)
+	b) > ((LISTA) (PEQUEÑA))
+	c) > ((PEQUEÑA) LISTA)
+	d) > (UNA PEQUEÑA LISTA)
+	e) > (UNA (PEQUEÑA.LISTA))
+	f) > ((((UNA) PEQUEÑA)) LISTA)
+	g) > ((UNA PEQUEÑA) LISTA)
+	h) > (((UNA) PEQUEÑA) (LISTA))
+
+- Ejercicio 5:
+	1) > (CONS 'PEDRO '(PEPE PABLO)) >>> (PEDRO PEPE PABLO)
+	2) > (CONS 'PEPE.PABLO '()) >>> (PEPE.PABLO)
+	3) > 
+
+- Ejercicio 6:
+	1) > 3 >>> 3
+	2) > "Esto es un string" >>> "Esto es un string"
+	3) > t >>> T
+	4) > 'A >>> A
+	5) > (QUOTE A) >>> A
+	6) > '(A B C) >>> (A B C)
+	7) > '(PALABRAS(MASCOTAS GATOS PERROR)) >>> (PALABRAS (MASCOTAS GATOS PERROR))
+
+	(CAR List): Primer elemento de la lista	
+	8) > (CAR(A B C)) >>> *** - EVAL: the function A is undefined
+	9) > (CAR'(A B C)) >>> A
+	10) > (CAR '(1 2 3 4)) >>> 1
+	11) > (CAR '(A B (C D) E)) >>> A
+	12) > (CAR '((A B) C)) >>> (A B)
+	13) > (CAR '((A B C))) >>> (A B C)
+	14) > (CAR 'A) >>> *** - CAR: A is not a list
+	15) > (CAR '((A))) >>> (A)
+	16) > (CAR '(A)) >>> A
+	
+	(CDR List): cola de la lista
+	17) > (CDR (A B C)) >>> *** - EVAL: the function A is undefined
+	18) > (CDR '(A B C)) >>> (B C)
+	19) > (CDR '(1 2 3 4 5)) >>> (2 3 4 5)
+	20) > (CDR '(A B (C D) E)) >>> (B (C D) E)
+	21) > (CDR '((A B) C)) >>> (C)
+	22) > (CDR '((A B C))) >>> NIL
+	
+	23) > (CADR '(A B C)) >>> B <=> (CAR(CDR '(A B C))) <=> (CAR '(B C))
+	24) > (CDAR '((A B C) D E)) >>> (B C) <=> (CDR(CAR '(A B C))) = (CDR '(A B C))
+	25) > (CADDR '(A B C D E)) >>> C <=> (CAR(CDR(CDR '(A B C D E)))) <=> (CAR (CDR '(B C D E))) <=> (CAR '(C D E))
+ 
+	LAST: devuelve el ultimo elemento de la lista
+	26) > (LAST '(A B C)) >>> (C)
+	27) > (LAST '(A (B C))) >>> ((B C))
+	28) > (LAST '(1 2 3.5)) >>> (3.5)
+	
+	NTH N: devueleve el elemento N-esimo de la lista
+	29) > (NTH 0 '(A B C)) >>> A
+	30) > (NTH 1 '(A B C)) >>> B
+	31) > (NTH 2 '(A B C)) >>> C
+	32) > (NTH 3 '(A B C)) >>> NIL
+	33) > (NTH 3 '("HOLA" "COMO" "TE" "LLAMAS")) >>> "LLAMAS"
+
+- Ejercicio 7:	
+	(CONS Elem List)
+	1) > (CONS "HOLA" '("COMO" "TE" "ENCUENTRAS")) >>> ("HOLA" "COMO" "TE" "ENCUENTRAS")
+	2) > (CONS 'A '(B C D)) >>> (A B C D) 
+	3) > (CONS '(X Y) '(B C D)) >>> ((X Y) B C D)
+	
+	(LIST Elem1, Elem2, ... , ElemN)
+	4) > (LIST 'A 'B 'C) >>> (A B C)
+	5) > (LIST '(A) '(B) '(C)) >>> ((A) (B) (C))
+	6) > (LIST (LIST (LIST 'A))) >>> (((A)))
+	7) > (CONS "HOLA" (LIST "COMO" "TE" "LLAMAS")) >>> ("HOLA" "COMO" "TE" "LLAMAS"
+	
+	(SETF X List/Elem): declaracion y definicion de la variable X
+	8) > (SETF L ‘(1 2)) <return> (1 2)
+	9) > (SETF K ‘(3 4)) <return> (3 4)
+	
+	(APPEND X Y) = (ListX ListY)
+	10) > (APPEND L K) <return> (1 2 3 4)
+	11) > L <return> (1 2)
+	12) > K <return> (3 4)
+	13) > (APPEND ‘(A) ‘(B) ‘(C)) <return> (A B C)
+	14) > (APPEND ‘(A) ‘(B C)) <return> (A B C)
+	15) > (APPEND ‘(A) ‘(B) ‘C) <return> (A B . C)
+	16) > (APPEND ‘A ‘(B C)) <return> *** - APPEND: A is not a list
+	17) > (APPEND ‘A NIL) <return> *** - APPEND: A is not a list
+	18) > (APPEND '(A) NIL) <return> (A)
+	19) > (APPEND ‘(1 2) ‘((3 4)) (LIST 5 6)) <return> (1 2 (3 4) 5 6)
+
+
+- Ejercicio 8:
+
+	(RPLACA A X): Cambia el valor del primer elemento de A por X, siendo A una lista	
+	(RPLACD A X): Cambia el valor de CRD de la lista A por el valor de X
+	1) > (SETF A ‘(1 2 3)) <return> (1 2 3)
+	2) > (RPLACA A 7) <return> (7 2 3)
+	3) > A <return> (7 2 3)
+	4) > (RPLACD A ‘(9)) <return> (7 9)
+	5) > A <return> (7 9)
+	
+	6) > (SETF A ‘(1 2 3)) <return> (1 2 3)
+	7) > (SETF B ‘(4 5 6)) <return> (4 5 6)
+	
+	(NCONC A B) => A = (ListA ListB) y B = (ListB) 
+	8) > (NCONC A B) <return> (1 2 3 4 5 6)
+	9) > A <return> (1 2 3 4  5 6)
+	10) > B <return> (4 5 6)
+	
+	11) > (SETF B '(4 5 6 7)) <return> (4 5 6 7)
+	
+	*(PUSH X B): Añade X en la primera posicion de la lista (Stack)
+	*(POP B): Elimina el primer valor de la lista B
+	12) > (PUSH 9 B) <return> (9 4 5 6 7)
+	13) > B <return> (9 4 5 6 7)
+	14) > (POP B) <return> 9
+	15) > B <return> (4 5 6 7)
+
+	16) > (SETF X ‘(A B C)) <return> (A B C)
+
+	*(REVERSE X): Retorna la lista X en orden inverso, pero NO modifica la lista X
+	*(NREVERSE X): Retorna la lista X en orden inverso, pero SI modifica la lista X
+	17) > (REVERSE X) <return> (C B A)
+	18) > X <return> (A B C)
+	19) > (NREVERSE X) <return> (C B A)
+	20) > X <return> (C B A)
+
+	*(LENGTH '(List)): Retorna el numero de elementos(atomos) de la lista
+	21) > (LENGTH ‘(A B C)) <return> 3 
+	22) > (LENGTH ‘(A B.C)) <return> 2
+	23) > (LENGTH ‘( (A B) (C) (D E F)) <return> 3 
+	24) > (LENGTH ‘()) <return> 0
+
+	*(MEMBER 'ElemI '(List)) => (Elem(I) ELem(I+1) ... Elem(N))
+	25) > (MEMBER ‘C ‘(A B C D E F)) <return> (C D E F)
+	26) > (MEMBER ‘Z ‘(A B C D E F)) <return> NIL
+	27) > (MEMBER ‘X ‘(A X B X C)) <return> (X B X C)
+	28) > (MEMBER ‘X ‘(A (X) B)) <return> NIL
+	29) > (MEMBER ‘X ‘(A X B)) <return> (X B)
+	30) > (SETF L ‘((A B) (C D))) <return> ((A B) (C D))
+	?¿31) > (MEMBER ‘(C D) L) <return> NIL
+	32) > (MEMBER 2.0 ‘(1 2 3)) <return> NIL
+	33) > (MEMBER ‘(C D) L :TEST #’EQUAL) <return> ((C D))
+	34) > (MEMBER 2.0 ‘(1 2 3) :TEST #’=) <return> (2 3)
+	35) > (MEMBER 2.0 ‘(1 2 3) :TEST #’<) <return> (3)
+
+- Ejercicio 9:
+
+	1) > (+ 2 4) <return> 6
+	2) > ‘(+ 2 6) <return> (+ 2 6)
+	3) > (+ 6 2 4) <return> 12 
+	4) > (- 15 2 8) <return> 5
+	5) > (* 2 5 0.5) <return> 5.0 *casting a (float)
+	6) > (/ 20 4 5) <return> 1
+	7) > (/ 12 9) <return> 4/3
+	8) > (/ 18 7) <return> 18/7
+	9) > (/ (SQRT 25) 10) <return> 1/2
+	10) > (/ 25.0 10) <return> 2.5
+	11) > (/ 9) <return> 1/9
+	12) > (/ 12 6 (+ 2 3)) <return> 2/5
+	13) > (SETF C 5) <return>
+	
+	*(INCF A X): Incrementa el valor de A en X
+	*(DECF A X): Decrementa el valor de A en X
+	14) > (INCF C 8) <return> 13
+	15) > C <return> 13
+	16) > (SETF C 9) <return> 9 
+	17) > (DECF C 3) <return> 6
+	18) > C <return> 6
+	19) > (SETF C 8) <return> 8
+	20) > (INCF C) <return> 9	// ++i
+	21) > C <return> 9
+	22) > (SETF E 2) <return> 2
+	23) > (DECF E) <return> 1	// --i
+	24) > E <return> 1
+	25) > (SETF C 3) <return> 3
+	26) > (1 + C) <return> Syntax Error
+	27) > (+ 1 C) <return> 4
+	28) > C <return> 3
+	29) > (SETF L 2) <return> 2
+	30) > (1 - L) <return> perror("EXIT_FAILURE")
+	31) > (- 1 L) <return> -1
+	32) > L <return> 2
+
+	*(SQRT X) = X^(1/2) / Raiz cuadrada de X
+	*(EXPT 
+	33) > (SQRT 25) <return>
+	34) > (SQRT 2) <return> 1.4142135
+	35) > (EXPT 2 3) <return> 8
+	36) > (EXP 1) <return> 2.7182817	//Numero e
+	37) > (REM 19 4) <return>
+	38) > (MOD 19 4) <return>
+	39) > (ABS 5) <return> 5
+	40) > (ABS -5) <return> 5
+	41) > (ABS 2.3) <return> 2.3
+	42) > (ABS -2.3) <return>
+	43) > (MIN 2 4 7 1 5) <return> 1
+	44) > (MAX 2 4 7 1 5) <return> 7
+	45) > (SETF N 100) <return>
+	46) > (= 3 3.0) <return> T 	// (3 == 3.0) = TRUE
+	47) > (/ 3 3.0) <return> 1.0
+	48) > (< 6 15 28) <return> T
+	49) > (< 13 15 4) <return> NIL	//NIL = FALSE
+	50) > (> 18 10 2) <return> T
+	51) > (> 10 3 9) <return> NIL
+	52) > (<= 5 5 18) <return> T
+	53) > (>= 49 49 24) <return> T
+	54) > (>= 39 27 27) <return> T
+	55) > (>= 80 90 80) <return> NIL
+	*(RETURNP X): Retorna T si X es de tipo numero
+	56) > (NUMBERP 7) <return> T
+	57) > (NUMBERP ‘NAME) <return> NIL
+	
+	*(EVENP X): returns true if integer is even (divisible by two); otherwise, returns false.
+	*(ODDP X): returns true if integer is odd (not divisible by two); otherwise, returns false.
+	58) > (ODDP -7) <return> T
+	59) > (ODDP 5.8) <return> *** - argument to ODDP should be an integer: 5.8
+	60) > (EVENP 8) <return> T
+	61) > (EVENP 7) <return> NIL
+
+- Ejercicio 10:
+
+	(= X Y): Igualdad de numeros
+	(EQUAL X Y): Igualdad de estructuras
+	(EQ X Y): Igualdad de objetos
+	(EQL X Y): Igualdad de representacion
+
+	1) > (= 7.5 7.5) <return> T
+	*(EQ X Y): Returns true if its arguments are the same, identical object; otherwise, returns false.
+	2) > (EQ 7.5 7.5) <return> NIL ?¿
+	3) > (EQ 3 3) <return> T
+	4) > (EQ 2 2.0) <return> NIL
+
+	*(EQL X Y): The value of eql is true of two objects, x and y, in the folowing cases:
+		1. If x and y are eq.
+		2. If x and y are both numbers of the same type and the same value.
+		3. If they are both characters that represent the same character.
+	5) > (EQL 7.3 7.3) <return> T
+	6) > (EQL 7 7.0) <return> NIL
+ 
+	7) > (SETF L ‘(A B C) <return> (A B C)
+	8) > (EQUAL ‘(A B C) L) <return> T
+	9) > (EQL ‘(A B C) L) <return> NIL
+	10) > (EQUAL 7.5 7.5) <return> T
+	11) > (EQUAL ‘(1 2) ‘(1 2)) <return> T
+	12) > (EQUAL “HELLO” “HELLO”) <return> T
+	13) > (SETF L ‘WORD) <return> WORD
+	14) > (SETF K ‘WORD) <return> WORD
+	15) > (EQUAL L K) <return> T
+
+-Ejercicio 11:
+
+	*(ATOM X): Returns true if object is of type atom; otherwise, returns false.
+	*(LISTP X): Returns true if object is of type list; otherwise, returns false.
+	1) > (ATOM ‘ONE) <return> T
+	2) > (ATOM ()) <return> T
+	3) > (ATOM “STRING”) <return> T
+	4) > (LISTP NIL) <return> T
+	5) > (ATOM (cons 1 2)) <return> false
+ 	6) > (listp nil) =>  true
+ 	7) > (listp (cons 1 2)) =>  true
+ 	8) > (listp (make-array 6)) =>  false
+	9) > (listp t) =>  false
+
+- Ejercicio 12: 
+
+	*(AND X Y Z): If all arguments evaluate to non-nil, 
+	then the value of the last argument is returned. Otherwise nil is returned.
+	*(OR X Y): Si alguno de los argumentos no es evaluado como NIL,
+ 	se para la ejecución y se devuelve ese valor.
+	*(NOT X): Solo admite un argumento. Si el argumento es
+	evaluado como NIL, devuelve T; sino dev NIL
+	
+	1) > (AND T T T (* 2 5)) <return> 10
+	2) > (SETF X 3) <return> 3
+	3) > (SETF CONT 0) <return> 0
+	4) > (INCF CONT) <return> 1
+	5) > (AND (<= CONT 10) (NUMBERP X) (* 2 X)) <return> 6
+	6) > (AND (EVENP X)(/ X 2)) <return> NIL	// X es impar => (EVENP X) = FALSE
+	7) > (OR NIL NIL (NULL ‘(A B)) (REM 23 13)) <return> 10
+	8) > (SETF X 10) <return> 10
+	9) > (OR (< 0 X)(DECF X)) <return> T
+	10) > (NOT NIL) <return> T
+	11) > (NOT T) <return> NIL
+	12) > (NOT (EQUAL ‘A ‘A)) <return> NIL
+	13) > (SETF X ‘(A B C)) <return> (A B C)
+	14) > (AND (NOT (NUMBERP X)) (NOT (ATOM X)) “ESTO ES UN EJEMPLO”) <return> “ESTO ES UN EJEMPLO”
+	15) > (OR (< 2 3) (SETF EJEMPLO 1) NIL) <return> T
+	16) > EJEMPLO <return> *** - EVAL: variable EJEMPLO has no value
+
+- Ejercicio 13: 
+
+	*(COND (cond1 sent1)(cond2 sent2)...): Se ejecuta la lista de sentencias de la 
+	primera condicion evaluada NO-NIL. El resto de condiciones se ignoran)
+	1) > (SETF X 5) <return>
+	2) > (SETF Y 4) <return>
+	/*
+	* if(Y > X) return Y;	
+	* else return X; 
+	*/
+	3) > (IF (> Y X) Y X) <return> 5
+	4) > (COND ((= Y X) “IGUAL”)
+		((< X Y) “MENOR”)
+		(t “MAYOR”)) <return> "MAYOR"
+	int X = 5, Y = 4;
+	/*
+	* if(Y == X)		return "IGUAL";
+	* else if(Y < X)	return "MENOR";
+	* else			return "MAYOR";
+	*/
+
+- Ejercicio 14: Escribe un programa que a partir de la temperatura devuelva
+	1) Helado: si la temperatura está por debajo de 0 grados.
+	2) Frio: si la temperatura está entre 0 y 10 grados.
+	3) Templado: si la temperatura está entre 10 y 20 grados.
+	4) Cálido: si la temperatura está entre 20 y 30 grados
+	
+	Ejer14.lisp:
+	(COND ((< X 0) "HELADO") 
+		((< X 10) "FRIO") 
+		((< X 20) "TEMPLADO") 
+		( T "INFIERNO") )
+
+- Ejercicio 15. ¿Qué devuelve LISP en las siguientes instrucciones? ¿Por qué?
+	1) > (SETF X 5) <return> 5
+	2) > (WHEN (< X 10) (INCF X) (PRINC X) (PRINC “HOLA”) (* 10 10)) <return> 
+	6HOLA
+	100
+	3) > (WHEN (< X 10) (INCF X) (PRINT X) (PRINT “HOLA”) (* 10 10)) <return> 
+	7
+	"HOLA"
+	100									
+
+	*(PRINT objeto &optional stream): Toma un objeto y lo escribe en una nueva
+	linea con un blanco detras
+	*(PRINC objeto &optional stream): Evita la repeticion de mostrar el ultimo
+	comando evaluado
+	*(TERPRI &optional stream): Escribe y realiza un salto de linea 
+
+
+-Ejercicio 16: Diseña un programa usando la orden CASE que dado un mes y un año, 
+ devuelva el número de días que tiene este mes.
+1- Enero: 31 dias
+2- Febrero  28 dias (29 en años bisiestos)
+3- Marzo: 31 dias
+4- Abril: 30 dias
+5- Mayo: 31 dias
+6- Junio: 30 dias
+7- Julio: 31 dias
+8- Agosto: 31 dias
+9- Septiembre: 30 dias
+10- Octubre: 31 dias
+11- Noviembre: 30 dias
+12- Diciembre: 31 dias
+
+
+(DEFUN TEST(AÑO MES)
+	(CASE ANO
+		(SET B (MOD AÑO 4))
+		((0) COND()
+		(IF(= B 0) (CASE MES
+				((ENERO) 31)
+				((FEBRERO) 29)
+				((MARZO) 31)
+				((ABRIL) 30)
+				((MAYO) 31)
+				((JUNIO) 30)
+				(JULIO) 31)
+				(AGOSTO) 31)
+				((SEPTIEMBRE) 30)
+				((OCTUBRE) 31)
+				((NOVIEMBRE) 30)
+				((DICIEMBRE) 31)		
+		(IF(> B 0) (CASE MES
+				((ENERO) 31)
+				((FEBRERO) 29)
+				((MARZO) 31)
+				((ABRIL) 30)
+				((MAYO) 31)
+				((JUNIO) 30)
+				(JULIO) 31)
+				(AGOSTO) 31)
+				((SEPTIEMBRE) 30)
+				((OCTUBRE) 31)
+				((NOVIEMBRE) 30)
+				((DICIEMBRE) 31))
+
+
+Ejercicio 17. ¿Qué devuelve LISP en las siguientes instrucciones? ¿Por qué?
+	
+	*PROGN: proporciona una forma de agrupar una lista de instrucciones. Es muy util 
+	en la instruccion IF.	
+	*nconc: returns a list that is the concatenation of lists
+	*progn: evaluates forms, in the order in which they are given.
+	The values of each form but the last are discarded
+
+	1) > (SETF X ‘(1 2 3 4 5)) <return> (1 2 3 4 5)
+	2) > (SETF L ‘()) <return> NIL
+	3) > (SETF CONT 0) <return> 0
+	4) > (LOOP
+		(IF (= (+ 1 CONT) (LENGTH X)) (RETURN L)	
+			(PROGN (NCONC L (+ 1 (NTH CONT X)) )
+				(INCF CONT) ) ) ) < return> nil
+	
+	/* (= (+ 1 cont) (length x)) >>> nil	// (1 == 5) */
+	/* (IF (= (+ 1 CONT) (LENGTH X)) (RETURN L)) >>> nil*/
+	/* (nconc l (+ 1 (nth cont x))) >>> 2	//nconc( nil (+ 1 1)) = 2 */
+	/*  (progn (nconc l (+ 1 (nth cont x))) (incf cont)) >>> 1
+	Juntamos l(nil) con 2 dos y nos deveulve una cadena que contiene 2 y nil
+	progn evalua ambas formas, pero solo saca por pantalla la ultima, en este caso (incf cont) 
+	que es 1.
+
+	5) > (DO ( (X 1 (+ X 1)) (Y 1 (* 2 Y)) ) ((> X 5) Y)
+		(PRINT X)) <return> 
+	1
+	2
+	3
+	4
+	5
+	32
+	33.
+			
+	
+- loop: The loop construct is the simplest form of iteration provided by LISP. In its simplest form, 
+it allows you to execute some statement(s) repeatedly until it finds a return statement.
+- loop for: The loop for construct allows you to implement a for-loop like iteration
+ as most common in other languages.
+- do: The do construct is also used for performing iteration using LISP. 
+  It provides a structured form of iteration.
+- dotimes: The dotimes construct allows looping for some fixed number of iterations.
+- dolist: The dolist construct allows iteration through each element of a list
+
+
+- Ejercicio 18: Diseña un programa usando la orden LOOP que dibuje la siguiente secuancia:
+	1 2 3 4 5
+	5
+	(loop
+		(if (= y 5) (return y)
+		(incf y) (print y))
+
+- Ejercicio 19. ¿Qué devuelve LISP en las siguientes instrucciones? ¿Por qué?
+	a) > (MAPCAR #’+ ‘(1 3 4) ‘(5 6 7)) <return>
+	b) > (MAPCAR #’ODDP ‘(1 5 6)) <return>
+	c) > (MAPCAR #’* ‘(2 4) ‘( 6 7) ’(2 5)) <return>
+	- Ejercicio 20. Diseña un programa, usando la orden DO que devuelva la siguiente secuencia:
+“HELLO”
+“HELLO”
+“HELLO”
+“HELLO”
+“HELLO”
+“GOODBYE”
+21. Diseña, usando la orden DO, programas que devuelvan las siguientes secuencias:
+a) 1 b) 1 c) 1 d) 1
+2 2 1 2 1 1 1 1
+3 3 3 1 2 3 1 1 1 1 1 1
+4 4 4 4 1 2 3 4 1 1 1 1 1 1 1 1
+FINAL FINAL FINAL FINALInteligencia Artificial 2018-2019 Laura De Miguel
+22. ¿Qué devuelve LISP en las siguientes instrucciones? ¿Por qué?
+ (DOLIST (X ‘(1 2 3 4 5)
+(PRINC (+ X 10))
+(PRINC #\ )) <return> (DOLIST (X ‘(1 2 3 4 5)
+(+ X 10)
+(PRINC #\ )) <return>
+23. Diseña, usando la orden DOLIST, un programa que dibuje la siguiente secuencia:
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+NIL
+2. Qué devuelve LISP en las siguientes instrucciones? ¿Por qué?
+(SETF X ‘P) <return>
+(DOLIST (Y ‘(A B C P Q))
+(IF (EQUAL X Y) (RETURN ‘IGUALES))) <return>
+
+
+
+
+
+
+
+
+	 
